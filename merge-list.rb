@@ -64,3 +64,41 @@ end
 
 puts "Second shot: #{merge2([3, 4, 6, 10, 11, 15], [1, 5, 8, 12, 14, 19])}"
 
+def recommended_merge(m, a)
+
+	merged_array_size = m.length + a.length
+  merged_array = Array.new(merged_array_size)
+
+  current_index_alices = 0
+  current_index_mine = 0
+  current_index_merged = 0
+
+  while current_index_merged < merged_array_size
+    is_my_array_exhausted = current_index_mine >= m.length
+    is_alices_array_exhausted = current_index_alices >= a.length
+
+    # case: next comes from my array
+    # my array must not be exhausted, and EITHER:
+    # 1) Alice's array IS exhausted, or
+    # 2) the current element in my array is less
+    #    than the current element in Alice's array
+    if !is_my_array_exhausted && (is_alices_array_exhausted ||
+       (m[current_index_mine] < a[current_index_alices]))
+
+      merged_array[current_index_merged] = m[current_index_mine]
+      current_index_mine += 1
+
+    # case: next comes from Alice's array
+    else
+      merged_array[current_index_merged] = a[current_index_alices]
+      current_index_alices += 1
+    end
+
+    current_index_merged += 1
+  end
+
+  merged_array
+
+end
+
+puts "Recommended: #{recommended_merge([3, 4, 6, 10, 11, 15], [1, 5, 8, 12, 14, 19])}"
