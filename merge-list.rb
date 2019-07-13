@@ -102,3 +102,12 @@ def recommended_merge(m, a)
 end
 
 puts "Recommended: #{recommended_merge([3, 4, 6, 10, 11, 15], [1, 5, 8, 12, 14, 19])}"
+
+
+# Bonus
+# What if we wanted to merge several sorted arrays? Write a method that takes as an 
+# input an array of sorted arrays and outputs a single sorted array with all the items 
+# from each array.
+
+# Do we absolutely have to allocate a new array to use for the merged output? 
+# Where else could we store our merged array? How would our method need to change?
