@@ -21,7 +21,7 @@ str2 = "{()[}]"
 
 
 def brackets (str)
-	arr = str.split()
+
 	opener = []
 
 	bracket_sets = {'('=>')', '{' => '}', '[' =>']'}
@@ -29,14 +29,14 @@ def brackets (str)
 	o = bracket_sets.keys
 	c = bracket_sets.values
 
-	arr.each do |char|
+	str.chars.each do |char|
 		if o.include?(char)
 			opener << char
 		elsif c.include?(char)
 			if opener.empty?
 				return false
 			else
-				last_open = opener.pop()
+				last_open = opener.pop
 				if bracket_sets[last_open] != char
 					return false
 				end
